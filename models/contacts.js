@@ -8,7 +8,7 @@ const updateContacts = async (contacts) => {
   try {
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   } catch (error) {
-    console.log(error);
+    console.log(error);   
   }
 };
 
@@ -18,7 +18,7 @@ const listContacts = async () => {
   return result;
 };
 
-const getById = async (contactId) => {
+const getContactById = async (contactId) => {
   const contacts = await listContacts();
   const id = contactId.toString();
   const oneContacts = contacts.find((item) => item.id === id);
@@ -73,7 +73,7 @@ const updateContact = async (contactId, body) => {
 
 module.exports = {
   listContacts,
-  getById,
+  getContactById,
   removeContact,
   addContact,
   updateContact,
