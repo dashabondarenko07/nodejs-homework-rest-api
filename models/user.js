@@ -9,7 +9,6 @@ const userSchema = new Schema(
   {
     password: {
       type: String,
-      minlength: 6,
       required: [true, "Password is required"],
     },
     email: {
@@ -34,12 +33,12 @@ const userSchema = new Schema(
 userSchema.post("save", handleSaveErrors);
 
 const signupSchema = Joi.object({
-  password: Joi.string().min(6).required(),
+  password: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
 });
 
 const loginSchema = Joi.object({
-  password: Joi.string().min(6).required(),
+  password: Joi.string().required(),
   email: Joi.string().pattern(emailRegexp).required(),
 });
 
