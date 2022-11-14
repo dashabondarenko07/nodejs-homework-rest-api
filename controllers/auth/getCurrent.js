@@ -1,6 +1,6 @@
 const getCurrent = async (req, res) => {
   const { email } = req.user;
-  res.json({
+  res.status(200).json({
     email,
   });
 };
